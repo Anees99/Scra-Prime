@@ -56,7 +56,7 @@ async def send_to_webhook(
     # Prepare request headers
     request_headers = {
         "Content-Type": "application/json",
-        "User-Agent": "StealthFlow/1.0"
+        "User-Agent": "ScraPrime/1.0"
     }
     
     if headers:
@@ -145,7 +145,7 @@ async def send_scraping_result(
     
     payload = {
         "event_type": "scraping.completed" if success else "scraping.failed",
-        "source": "stealthflow",
+        "source": "scraprime",
         "timestamp": datetime.utcnow().isoformat() + "Z",
         "data": {
             "url": url,
@@ -277,7 +277,7 @@ async def main():
     
     # Using the class-based sender
     sender = WebhookSender("https://httpbin.org/post")
-    success = await sender.send({"message": "Hello from StealthFlow"})
+    success = await sender.send({"message": "Hello from ScraPrime"})
     print(f"Class-based send: {success}")
 
 

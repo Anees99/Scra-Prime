@@ -1,5 +1,5 @@
 """
-Pydantic models for StealthFlow request/response validation.
+Pydantic models for ScraPrime request/response validation.
 
 This module provides type-safe data models for scraping requests and responses,
 ensuring proper validation of URLs, headers, proxies, and extracted data.
@@ -141,7 +141,7 @@ class WebhookPayload(BaseModel):
     """
     
     event_type: str = Field(..., description="Type of webhook event")
-    source: str = Field(default="stealthflow", description="Source system identifier")
+    source: str = Field(default="scraprime", description="Source system identifier")
     response: ScrapingResponse = Field(..., description="The scraping response")
     metadata: Optional[Dict[str, Any]] = Field(
         default=None,
@@ -152,7 +152,7 @@ class WebhookPayload(BaseModel):
         json_schema_extra = {
             "example": {
                 "event_type": "scraping.completed",
-                "source": "stealthflow",
+                "source": "scraprime",
                 "response": {
                     "url": "https://www.example.com/product/123",
                     "success": True,
