@@ -4,13 +4,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="stealthflow",
+    name="scraprime",
     version="1.0.0",
-    author="StealthFlow Team",
+    author="ScraPrime Team",
     description="Enterprise-grade web scraping package with 3-tiered WAF bypass architecture",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/stealthflow/stealthflow",
+    url="https://github.com/scraprime/scraprime",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -42,7 +42,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "stealthflow=stealthflow.fetcher:main",
+            "scraprime=scraprime.fetcher:main",
         ],
     },
 )

@@ -1,8 +1,8 @@
-# StealthFlow
+# ScraPrime
 
 **Enterprise-grade web scraping package with 3-tiered WAF bypass architecture**
 
-StealthFlow is a commercial-grade Python package designed to bypass enterprise Web Application Firewalls (WAFs) including Cloudflare, DataDome, and Akamai. It uses an intelligent 3-tiered fallback system that prioritizes speed while ensuring maximum success rates.
+ScraPrime is a commercial-grade Python package designed to bypass enterprise Web Application Firewalls (WAFs) including Cloudflare, DataDome, and Akamai. It uses an intelligent 3-tiered fallback system that prioritizes speed while ensuring maximum success rates.
 
 ## Features
 
@@ -22,17 +22,17 @@ StealthFlow is a commercial-grade Python package designed to bypass enterprise W
 ## Installation
 
 ```bash
-pip install stealthflow
+pip install scraprime
 
 # With GeoIP support for better fingerprint spoofing
-pip install stealthflow[geoip]
+pip install scraprime[geoip]
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/stealthflow/stealthflow.git
-cd stealthflow
+git clone https://github.com/scraprime/scraprime.git
+cd scraprime
 pip install -r requirements.txt
 pip install -e .
 ```
@@ -41,7 +41,7 @@ pip install -e .
 
 ```python
 import asyncio
-from stealthflow import StealthFetcher, Adaptor
+from scraprime import StealthFetcher, Adaptor
 
 async def main():
     # Initialize the fetcher with optional proxy
@@ -65,8 +65,8 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from stealthflow import StealthFetcher, Adaptor, send_to_webhook
-from stealthflow.models import ScrapingRequest, ScrapingResponse
+from scraprime import StealthFetcher, Adaptor, send_to_webhook
+from scraprime.models import ScrapingRequest, ScrapingResponse
 
 async def scrape_and_send():
     # Define request with validation
@@ -119,7 +119,7 @@ asyncio.run(scrape_and_send())
 You can also use individual tier methods directly:
 
 ```python
-from stealthflow import StealthFetcher
+from scraprime import StealthFetcher
 
 fetcher = StealthFetcher()
 
@@ -176,7 +176,7 @@ class ScrapingResponse(BaseModel):
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     StealthFlow                             │
+│                      ScraPrime                              │
 ├─────────────────────────────────────────────────────────────┤
 │  Tier 1: curl_cffi (Fast HTTP with TLS spoofing)           │
 │         ↓ (403/503/WAF detected)                            │
@@ -192,7 +192,7 @@ class ScrapingResponse(BaseModel):
 
 ## WAF Detection
 
-StealthFlow automatically detects WAF blocks by checking for:
+ScraPrime automatically detects WAF blocks by checking for:
 
 - HTTP status codes: 403, 429, 503
 - HTML signatures: "challenge-platform", "datadome", "Access Denied"
@@ -231,4 +231,4 @@ Contributions are welcome! Please submit PRs to the GitHub repository.
 
 ## Support
 
-For enterprise support and custom integrations, contact: support@stealthflow.io
+For enterprise support and custom integrations, contact: support@scraprime.io

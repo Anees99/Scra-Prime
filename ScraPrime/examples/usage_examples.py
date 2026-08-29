@@ -1,7 +1,7 @@
 """
-StealthFlow Usage Examples
+ScraPrime Usage Examples
 
-This file demonstrates how to use StealthFlow for various scraping scenarios,
+This file demonstrates how to use ScraPrime for various scraping scenarios,
 including bypassing DataDome protection, adaptive parsing, and webhook integration.
 """
 
@@ -25,7 +25,7 @@ async def example_basic_scraping():
     """
     Demonstrate basic HTML fetching with automatic tier fallback.
     """
-    from stealthflow import StealthFetcher
+    from scraprime import StealthFetcher
     
     fetcher = StealthFetcher()
     
@@ -48,7 +48,7 @@ async def example_datadome_scraping():
     Scrape a DataDome-protected e-commerce site with proxy support.
     This demonstrates the full power of the 3-tiered fallback system.
     """
-    from stealthflow import StealthFetcher, Adaptor
+    from scraprime import StealthFetcher, Adaptor
     
     # Configure your proxy (required for most protected sites)
     proxy_config = {
@@ -118,8 +118,8 @@ async def example_complete_workflow_with_webhook():
     Complete scraping workflow: fetch → parse → send to n8n webhook.
     This is the production-ready pattern for enterprise scraping.
     """
-    from stealthflow import StealthFetcher, Adaptor, send_to_webhook
-    from stealthflow.models import ScrapingRequest, ScrapingResponse
+    from scraprime import StealthFetcher, Adaptor, send_to_webhook
+    from scraprime.models import ScrapingRequest, ScrapingResponse
     
     # Configuration
     WEBHOOK_URL = "https://your-n8n-instance.com/webhook/scraping-data"
@@ -210,7 +210,7 @@ async def example_complete_workflow_with_webhook():
     # Step 6: Send to n8n webhook
     webhook_payload = {
         "event_type": "scraping.completed",
-        "source": "stealthflow",
+        "source": "scraprime",
         "response": response.model_dump(),
         "metadata": {
             "job_id": "example-job-123",
@@ -237,7 +237,7 @@ async def example_concurrent_scraping():
     """
     Scrape multiple URLs concurrently with controlled parallelism.
     """
-    from stealthflow import StealthFetcher, Adaptor
+    from scraprime import StealthFetcher, Adaptor
     
     urls = [
         "https://www.very.co.uk/product/item-1",
@@ -308,7 +308,7 @@ async def example_manual_tier_selection():
     Manually select which tier to use based on known site requirements.
     Useful when you know a site needs specific handling.
     """
-    from stealthflow import StealthFetcher
+    from scraprime import StealthFetcher
     
     fetcher = StealthFetcher()
     url = "https://example.com"
@@ -339,7 +339,7 @@ async def example_advanced_parsing():
     """
     Demonstrate advanced parsing techniques with AdaptiveParser.
     """
-    from stealthflow import StealthFetcher, AdaptiveParser
+    from scraprime import StealthFetcher, AdaptiveParser
     
     fetcher = StealthFetcher()
     html = await fetcher.fetch("https://example.com/products")
@@ -391,7 +391,7 @@ async def example_advanced_parsing():
 async def main():
     """Run all examples."""
     print("=" * 70)
-    print("StealthFlow Usage Examples")
+    print("ScraPrime Usage Examples")
     print("=" * 70)
     
     # Example 1: Basic scraping

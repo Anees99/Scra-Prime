@@ -138,23 +138,23 @@ class StealthFetcher:
             >>> if html:
             ...     print(f"Successfully fetched {len(html)} bytes")
         """
-        self.logger.info(f"[StealthFlow] Starting fetch for: {url}")
+        self.logger.info(f"[ScraPrime] Starting fetch for: {url}")
         
         # TIER 1: Fast HTTP with TLS spoofing
         html_content = await self._fetch_tier1_curl(url, headers, timeout)
         
         if html_content is None:
-            self.logger.warning(f"[StealthFlow] Tier 1 blocked. Falling back to Tier 2 (Scrapling) for {url}")
+            self.logger.warning(f"[ScraPrime] Tier 1 blocked. Falling back to Tier 2 (Scrapling) for {url}")
             html_content = await self._fetch_tier2_scrapling(url, headers, timeout)
         
         if html_content is None:
-            self.logger.warning(f"[StealthFlow] Tier 2 blocked. Falling back to Tier 3 (Camoufox) for {url}")
+            self.logger.warning(f"[ScraPrime] Tier 2 blocked. Falling back to Tier 3 (Camoufox) for {url}")
             html_content = await self._fetch_tier3_camoufox(url, timeout)
         
         if html_content:
-            self.logger.info(f"[StealthFlow] Successfully fetched {url} using Tier {self.last_tier_used}")
+            self.logger.info(f"[ScraPrime] Successfully fetched {url} using Tier {self.last_tier_used}")
         else:
-            self.logger.error(f"[StealthFlow] All tiers failed for {url}")
+            self.logger.error(f"[ScraPrime] All tiers failed for {url}")
         
         return html_content
     
