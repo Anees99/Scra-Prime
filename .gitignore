@@ -1,5 +1,28 @@
-node_modules/
-.next/
+```
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.eggs/
+.egg-info/
 dist/
 build/
+.coverage
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.cover/
+
+# Environment
+.env
+.env.local
+*.env.*
+```node_modules/
+.next/
 *.log
