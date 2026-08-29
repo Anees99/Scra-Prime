@@ -9,7 +9,7 @@ when website structures change.
 import logging
 from typing import Any, Dict, List, Optional
 
-from scrapling import Adaptor as ScraplingAdaptor
+from scrapling.parser import Adaptor as ScraplingAdaptor
 
 logger = logging.getLogger(__name__)
 

@@ -11,7 +11,7 @@ from scraprime.webhook import send_to_webhook
 from scraprime.models import ScrapingRequest, ScrapingResponse
 
 # Re-export scrapling's Adaptor for convenience
-from scrapling import Adaptor
+from scrapling.parser import Adaptor
 
 __version__ = "1.0.0"
 __author__ = "ScraPrime Team"
